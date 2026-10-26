@@ -105,15 +105,19 @@ export default function App() {
             {(() => {
               const [copied, setCopied] = React.useState(false);
               const [revealed, setRevealed] = React.useState(false);
+              const [sending, setSending] = React.useState(false);
+              const [formStatus, setFormStatus] = React.useState('');
               const email = content.contact.emailParts.join('@');
               const phone = content.contact.phoneParts.join('');
               return (
                 <>
-                  <form onSubmit={(e)=>{e.preventDefault(); const f=new FormData(e.target); const name=f.get('name')||'Visitor'; window.location.href=`mailto:${email}?subject=${encodeURIComponent('Portfolio enquiry from '+name)}&body=${encodeURIComponent(f.get('message'))}`;}} className="flex flex-col gap-3">
+                  <form onSubmit={async (e)=>{e.preventDefault(); const f=new FormData(e.target); const name=f.get('name')||'Visitor'; setSending(true); setFormStatus(''); try { const r=await fetch(`${import.meta.env.VITE_API_URL||'http://localhost:5000'}/api/contact`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email:f.get('email'),subject:'Portfolio enquiry',message:f.get('message')})}); const d=await r.json(); if(!r.ok) throw new Error(d.error||'Failed'); setFormStatus('success'); e.target.reset(); } catch(err){ setFormStatus('error'); } finally { setSending(false); } }} className="flex flex-col gap-3">
                     <input name="name" placeholder="Name" required className="px-4 py-2 rounded-xl border border-border bg-surface" />
                     <input name="email" type="email" placeholder="Email" required className="px-4 py-2 rounded-xl border border-border bg-surface" />
                     <textarea name="message" placeholder="Message" required className="px-4 py-2 rounded-xl border border-border bg-surface" rows={4} />
-                    <button type="submit" className="px-5 py-3 rounded-full bg-accent text-black font-medium w-fit">Send</button>
+                    <button type="submit" className="px-5 py-3 rounded-full bg-accent text-black font-medium w-fit" disabled={sending}>{sending?'Sending...':'Send'}</button>
+                    {formStatus==='success' && <p className="text-green-500 text-sm">Message sent successfully.</p>}
+                    {formStatus==='error' && <p className="text-red-500 text-sm">Failed to send. Try again.</p>}
                   </form>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <a href={`mailto:${email}?subject=Portfolio%20enquiry`} aria-label="Email Nnamdi Hephzibah" className="w-11 h-11 rounded-full glass flex items-center justify-center text-muted hover:text-accent transition" target="_blank" rel="noopener noreferrer"><MdEmail size={20}/></a>
