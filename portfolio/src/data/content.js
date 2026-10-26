@@ -42,7 +42,7 @@ export const content = {
       tags: ['JavaScript', 'React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'Supabase', 'PostgreSQL', 'Git'],
       demo: '',
       repo: '',
-      image: '/images/projects/savorbite.jpg',
+      image: '/images/savorbite-mockup.png',
     },
     {
       title: 'NOVA City Life 3D: Interactive Browser-Based City Simulation',
@@ -52,7 +52,7 @@ export const content = {
       tags: ['JavaScript', 'HTML5', 'CSS3', 'Three.js', 'FBX models'],
       demo: '',
       repo: '',
-      image: '/images/projects/nova.jpg',
+      image: '/images/nova-city-life-3d-mockup.png',
     },
     {
       title: 'Personal Developer Portfolio',
@@ -62,7 +62,7 @@ export const content = {
       tags: ['JavaScript', 'React.js', 'Tailwind CSS', 'Vite', 'Git'],
       demo: '',
       repo: '',
-      image: '/images/projects/portfolio.jpg',
+      image: '/images/soft-portfolio-mockup.png',
     },
   ],
   education: {

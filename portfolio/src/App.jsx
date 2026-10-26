@@ -114,7 +114,7 @@ export default function App() {
             <div className="space-y-12">
               {content.projects.map((p,i)=>(
                 <div key={p.title} className={`grid md:grid-cols-2 gap-8 items-center p-8 rounded-3xl ${i%2===0 ? 'bg-gradient-to-br from-red-900/30 to-blue-900/30' : 'bg-gradient-to-br from-orange-900/30 to-purple-900/30'}`}>
-                  <div className="h-64 rounded-2xl bg-gradient-to-br from-accent/30 to-accent2/30 flex items-center justify-center text-lg font-bold text-white">{p.title}</div>
+                  <img src={p.image} alt={`${p.title} mockup`} className="h-64 w-full rounded-2xl object-cover hover:scale-105 transition" />
                   <div>
                     <h3 className="font-display text-3xl font-bold text-white mb-2">{p.title}</h3>
                     <p className="text-gray-300 mb-4">{p.description}</p>
