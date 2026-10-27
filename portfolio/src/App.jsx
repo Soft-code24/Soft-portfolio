@@ -58,24 +58,35 @@ export default function App() {
           </div>
         </section>
 
-        <section className="reveal relative py-24 overflow-hidden bg-gradient-to-br from-[#2a0a0a] via-[#0B1220] to-[#0a1a2a]" id="about">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-600/20 blur-3xl rounded-full" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/20 blur-3xl rounded-full" />
-          </div>
+        <section className="reveal relative py-24 overflow-hidden bg-gradient-to-b from-[#1a0a0a] to-[#0B1220]" id="about">
           <div className="relative z-10 max-w-6xl mx-auto px-4">
             <motion.h2 initial={{opacity:0, scale:0.8}} whileInView={{opacity:1, scale:1}} viewport={{once:true}} transition={{duration:1}} className="font-display text-[10vw] font-black text-white leading-none mb-12">
-              ABOUT<br/><span className="text-accent">ME</span>
+              BEYOND THE CODE
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-2xl text-gray-200 font-light mb-6">I am Hephzibah, but I go by Soft.</p>
+                <p className="text-lg text-gray-400 mb-4">I am a Computer Science student at FUTO with a strong interest in full-stack development, UI/UX design, and interactive digital experiences. I care about details and want products that look intentional, work properly, and provide great UX.</p>
+                <p className="text-gray-500 mb-6">My journey combines university studies with practical software development. I have been building projects, experimenting with technologies, solving implementation problems, and turning ideas into working products.</p>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-accent">Curiosity</h3>
+                    <p className="text-gray-400">Understanding how things work and exploring new possibilities.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-accent">Craft</h3>
+                    <p className="text-gray-400">Caring about usability, visual quality, functionality, and implementation details.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-accent">Growth</h3>
+                    <p className="text-gray-400">Improving through practical projects, experimentation, and problem-solving.</p>
+                  </div>
+                </div>
+                <p className="text-gray-400 mt-6">I am interested in full-stack engineering, thoughtful UI/UX, interactive web experiences, and eventually ethical hacking. I want to keep growing, build useful digital products, and work with people who have interesting ideas.</p>
+              </div>
               <div className="relative">
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: 'linear' }} className="absolute -inset-4 border-2 border-accent/30 rounded-3xl" />
-                <img src="/images/profile.jpg" alt={`Portrait of ${content.profile.fullName}`} className="relative w-full max-w-md rounded-3xl object-cover aspect-[4/5] ring-4 ring-accent/40" />
-              </div>
-              <div>
-                <p className="text-2xl text-gray-200 font-light mb-6">{content.profile.fullName}</p>
-                <p className="text-lg text-gray-400 mb-4">{content.profile.summary[0]}</p>
-                <p className="text-gray-500">{content.profile.summary[1]}</p>
+                <img src="/images/profile.jpg" alt="Portrait of Hephzibah" className="relative w-full max-w-md rounded-3xl object-cover aspect-[4/5] ring-4 ring-accent/40" />
               </div>
             </div>
           </div>
